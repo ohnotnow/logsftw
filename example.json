@@ -1,0 +1,13 @@
+{
+    "action":"login",
+    "datetime":"10/03/2019 09:17:49",
+    "username":"ginger",
+    "domain":"campus",
+    "computername":"MATH544-00",
+    "MiscData":"130.209.160.34 fe80::15ca:377c:54f6:7ec8",
+    "data":{"random":1,"data":"possible"},
+    "MAC":"14:B3:1F:07:1D:9A",
+    "IP":"192.168.1.77",
+    "OS":"Windows 10 15801 x64",
+    "SessionType":"RDP#1"
+}
