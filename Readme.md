@@ -1,18 +1,14 @@
-# Litelogs
+# LogsFTW
 
-Litelogs is a _very_ simple log aggregator geared towards docker containers.  It listens for incoming messages in GELF format and stores
-them in MongoDB.  There is a web front-end which lets you search the logs via simple strings or regex.
+LogsFTW is a _very_ simple log aggregator geared towards our windows login logs. There is a web front-end which lets you search the logs via simple strings or regex.
 
 __NOTE:__ This is a very early work-in-progress and should _not_ be used in production.
-
-![Screenshot of litelogs](./screenshot/litelogs.png)
 
 ## Features
 
 * It's very lightweight - around 25mb for the main process
 * Can be scaled up very easily
 * Customise log-retention duration
-* Can forward incoming logs onto another server if needed for archive or further processing
 
 ## Project setup
 ```
@@ -37,6 +33,13 @@ docker-compose up --build
 ```
 After a little while you should have the front-end available at http://localhost:3002/ (default username/password is 'admin'/'secret' and a copy of mongo-express running at http://localhost:8081/ if you want to dig into the actual database.
 
+## Sending logs in
+
+There is an api endpoint of `/log` which accepts a json payload.  There is an `example.json` of the format it expects.  For instance, to send some data in via `curl` :
+```
+curl -vX POST http://localhost:3001/log -d @example.json --header "Content-Type: application/json" --header 'X-Auth: mysecretkey'
+```
+
 ## Configuration options
 
 ```
@@ -44,7 +47,7 @@ After a little while you should have the front-end available at http://localhost
 --api-debug                  log api requests
 --no-alive                   don't output alive messages
 --mongo <connection-string>  connection string for mongodb (default:
-                            "mongodb://localhost:27017/litelogs")
+                            "mongodb://localhost:27017/LogsFTW")
 --port <port-number>         port number to listen on (default: 12201)
 --ip <ip-address>            IP address to bind to (default: "0.0.0.0")
 --ttl <hours>                number of hours to retain logs (default: 672 (4 weeks))

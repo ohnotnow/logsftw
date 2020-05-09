@@ -29,6 +29,12 @@ app.get("/search", checkApiKey, (req, res) => {
   const pageNumber = req.query.page ? req.query.page : 1;
   const r = new RegExp(decodeURIComponent(req.query.q));
   const query = { combined_message: { $regex: r, $options: "i" } };
+  if (req.query.start_date && req.query.end_date) {
+    query["datetime"] = {
+      $gte: moment(req.query.start_date).toDate(),
+      $lte: moment(req.query.end_date).toDate()
+    }
+  }
   if (req.query.username) {
     query["username"] = {
       $regex: new RegExp(decodeURIComponent(req.query.username)),

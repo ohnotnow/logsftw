@@ -1,7 +1,7 @@
 <template>
   <nav class="flex justify-between items-center mb-4">
     <SearchBox @searched="updateResults" :page="page"/>
-    <h1 class="text-2xl text-gray-500 tracking-wider">Litelogs</h1>
+    <h1 class="text-2xl text-gray-500 tracking-wider">LogsFTW</h1>
   </nav>
 </template>
 

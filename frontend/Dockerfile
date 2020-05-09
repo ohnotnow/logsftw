@@ -5,7 +5,7 @@ ARG VUE_APP_API_SERVER
 
 USER node
 WORKDIR /home/node
-COPY package* postcss.config.js /home/node/
+COPY package* postcss.config.js tailwind.config.js /home/node/
 RUN npm ci
 COPY src /home/node/src
 COPY public /home/node/public

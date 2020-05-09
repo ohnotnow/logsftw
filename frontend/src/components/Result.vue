@@ -2,7 +2,7 @@
   <div class="shadow mb-4 rounded-lg relative">
       <button class="flex justify-between min-w-full bg-gray-200 hover:bg-gray-100 p-2 rounded rounded-b-none" @click="toggleExpanded(result)" title="Expand" aria-label="Expand content">
         <span v-text="result.host" />
-        <span v-text="result.created_at" />
+        <span v-text="result.datetime" />
       </button>
 
       <div class="grid grid-cols-6 grid-gap-2">
