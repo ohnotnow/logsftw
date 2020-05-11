@@ -64,7 +64,7 @@ app.get("/search", checkApiKey, (req, res) => {
     {
       page: pageNumber,
       limit: program.maxApiResults,
-      sort: { created_at: "desc" }
+      sort: { datetime: "desc" }
     },
     (err, results) => {
       if (err) {
