@@ -5,6 +5,8 @@ module.exports = {
     './src/**/*.jsx',
   ],
   theme: {},
-  variants: {},
+  variants: {
+    cursor: ['responsive', 'hover']
+  },
   plugins: [],
 }

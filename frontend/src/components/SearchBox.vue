@@ -73,6 +73,11 @@
         v-on:keyup.enter="search"
         v-pikaday="pikadayOptions"
       />
+      <button
+        @click="reset"
+        class="flex-shrink-0 mr-4 hover:bg-gray-700 border-gray-500 hover:border-gray-700 hover:text-gray-100 text-sm border-2 text-gray-700 py-1 px-2 rounded"
+        type="button"
+      >Reset</button>
     </div>
     <p class="text-red-500" v-text="error"></p>
   </div>
@@ -113,10 +118,21 @@ export default {
       this.search();
     }
   },
-  mount() {
+  mounted() {
       this.sodOff = moment(); // keep vue happy about unused imports :-/
+      this.search();
   },
   methods: {
+    reset() {
+      this.query = "";
+      this.error = "";
+      this.username = "";
+      this.mac = "";
+      this.ip = "";
+      this.hostname = "";
+      this.start_date = "";
+      this.end_date = "";
+    },
     search() {
       this.error = "";
       const queryString = this.buildQueryString();
