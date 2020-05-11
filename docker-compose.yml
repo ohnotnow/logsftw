@@ -25,10 +25,6 @@ services:
         VUE_APP_API_SERVER: "http://localhost:3001"
     ports:
       - "3002:80"
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://host.docker.internal:12201
 
   mongo:
     image: mongo:4.0.14
@@ -37,7 +33,7 @@ services:
     healthcheck:
       test: echo 'db.stats().ok' | mongo localhost:27017/litelogs --quiet
 
-  mongoexpress:
-    image: mongo-express:0.49
-    ports:
-        - "8081:8081"
+  # mongoexpress:
+  #   image: mongo-express:0.49
+  #   ports:
+  #       - "8081:8081"
